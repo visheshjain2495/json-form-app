@@ -57,6 +57,11 @@ app.post('/submit', async (req, res) => {
   }
 });
 
+// Handle 404 - Not Found
+app.use((req, res) => {
+  res.status(404).send('Page Not Found');
+});
+
 // Start server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
