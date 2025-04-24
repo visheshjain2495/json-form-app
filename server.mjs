@@ -11,6 +11,11 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = 3000;
 
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
